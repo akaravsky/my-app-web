@@ -18,6 +18,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /usr/src/my-app/front/build  /usr/share/nginx/html
 
 # docker build -t akr/my-app .
