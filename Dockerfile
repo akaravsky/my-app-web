@@ -2,7 +2,7 @@
 # alpine means a small as possible
 FROM node:alpine as builder
 
-WORKDIR /usr/src/my-app/front
+WORKDIR '/app'
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # Copy package.json before other files to cache npm install step, because node_modules most of the time the same
@@ -19,6 +19,6 @@ RUN npm run build
 
 FROM nginx
 EXPOSE 80
-COPY --from=builder /usr/src/my-app/front/build  /usr/share/nginx/html
+COPY --from=builder /app/build  /usr/share/nginx/html
 
 # docker build -t akr/my-app .
