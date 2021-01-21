@@ -8,14 +8,14 @@ before_install:
 script:
     - docker run myapp/front npm run test
 
-deploy:
-    provider: elasticbeanstalk
-    region: "us-east-2"
-    app: "my-app-front"
-    env: "MyAppFront-env"
-    bucket_name: "elasticbeanstalk-us-east-2-865284307270"
-    bucket_path: "my-app-front"
-    on: 
-        branch: main 
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+#deploy:
+#    provider: elasticbeanstalk
+#    region: "us-east-2"
+#    app: "my-app-front"
+#    env: "MyAppFront-env"
+#    bucket_name: "elasticbeanstalk-us-east-2-865284307270"
+#    bucket_path: "my-app-front"
+#    on: 
+#        branch: main 
+#    access_key_id: $AWS_ACCESS_KEY
+#    secret_access_key: $AWS_SECRET_KEY

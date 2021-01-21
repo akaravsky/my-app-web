@@ -1,8 +1,8 @@
 # Use an existing docker image as a base
 # alpine means a small as possible
-FROM node:alpine as builder
+FROM node:alpine
 
-WORKDIR /usr/src/my-app/front
+WORKDIR /app
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # Copy package.json before other files to cache npm install step, because node_modules most of the time the same
