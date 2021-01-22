@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+    networks:
+      - my-app-api_some-net
+
+  web:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    volumes:
+      #don't rewrite node_modules
+      - /usr/src/app/node_modules
+      #copy all from current folder to app folder
+      - .:/usr/src/app
+    ports:
+     - "8080:8080"
+    networks:
+      - my-app-api_some-net
+
+networks:
+  my-app-api_some-net:
+    external: true
+
+# docker-compose up
+# docker-compose up --build
+# docker-compose up --build --force-recreate --renew-anon-volumes

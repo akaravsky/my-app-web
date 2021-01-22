@@ -48,9 +48,7 @@ const config = {
     },
     devServer: {
         historyApiFallback: true, // allow reload page
-        proxy: {
-            '/auth/google': 'http://localhost:3000'
-        }
+        disableHostCheck: true, // remove 'Invalid Host Header' issue
     },
     plugins: [
         new HtmlWebpackPlugin({
