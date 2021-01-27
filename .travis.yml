@@ -3,18 +3,20 @@ services:
     - docker
 
 before_install:
-    - docker build -t myapp/front -f Dockerfile.dev .
+    - docker build -t askaravskiy/myapp-front -f Dockerfile.dev .
 
 script:
-    - docker run myapp/front npm run test
+    - docker run askaravskiy/myapp-front npm run test
 
 after_success:
-    -docker build -t myapp/front .
-    -docker build -t myapp/nginx ./nginx
+    -docker build -t askaravskiy/myapp-front .
+    -docker build -t askaravskiy/myapp-nginx ./nginx
 
 # Log in to the docker CLI
-
-# 
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+# Take those images and push them to docker hub
+- docker push askaravskiy/myapp-front
+- docker push askaravskiy/myapp-nginx
 
 #deploy:
 #    provider: elasticbeanstalk
