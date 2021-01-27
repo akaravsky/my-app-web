@@ -8,6 +8,14 @@ before_install:
 script:
     - docker run myapp/front npm run test
 
+after_success:
+    -docker build -t myapp/front .
+    -docker build -t myapp/nginx ./nginx
+
+# Log in to the docker CLI
+
+# 
+
 #deploy:
 #    provider: elasticbeanstalk
 #    region: "us-east-2"
