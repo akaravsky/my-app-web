@@ -9,8 +9,8 @@ script:
     - docker run askaravskiy/myapp-front npm run test
 
 after_success:
-    -docker build -t askaravskiy/myapp-front .
-    -docker build -t askaravskiy/myapp-nginx ./nginx
+    - docker build -t askaravskiy/myapp-front .
+    - docker build -t askaravskiy/myapp-nginx ./nginx
 
 # Log in to the docker CLI
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
