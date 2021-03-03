@@ -1,0 +1,23 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "ContainerDefinitions": [
+        {
+            "name": "my-app-web",
+            "image": "askaravskiy/myapp-web",
+            "hostname": "my-app-web",
+            "essential": true
+        },
+        {
+            "name": "my-app-nginx",
+            "image": "askaravskiy/myapp-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["my-app-web"]
+        }
+    ]
+}
