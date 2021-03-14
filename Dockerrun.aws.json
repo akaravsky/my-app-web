@@ -5,7 +5,8 @@
             "name": "my-app-web",
             "image": "askaravskiy/myapp-web",
             "hostname": "my-app-web",
-            "essential": true
+            "essential": true,
+            "memory": 128
         },
         {
             "name": "my-app-nginx",
@@ -17,7 +18,8 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["my-app-web"]
+            "links": ["my-app-web"],
+            "memory": 128 
         }
     ]
 }
