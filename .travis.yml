@@ -22,7 +22,7 @@ deploy:
     region: us-east-2
     app: my-app-web
     env: Myappweb-env
-    bucket_name: 'elasticbeanstalk-us-east-1-865284307270'
+    bucket_name: 'elasticbeanstalk-us-east-2-865284307270'
     bucket_path: 'my-app-web'
     on:
         branch: main
