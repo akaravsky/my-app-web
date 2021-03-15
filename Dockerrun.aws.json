@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "ContainerDefinitions": [
+    "containerDefinitions": [
         {
             "name": "my-app-web",
             "image": "askaravskiy/myapp-web",
