@@ -11,11 +11,13 @@ script:
 after_success:
     - docker build -t askaravskiy/myapp-web .
     - docker build -t askaravskiy/myapp-nginx ./nginx
+    - docker build -t askaravskiy/myapp-server ./server
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     # Take those images and push them to docker hub
     - docker push askaravskiy/myapp-web
     - docker push askaravskiy/myapp-nginx
+    - docker push askaravskiy/myapp-server
 
 deploy:
     provider: elasticbeanstalk

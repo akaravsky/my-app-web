@@ -11,6 +11,13 @@ services:
       - '3050:80'
     networks:
       - my-app-api_some-net
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /usr/src/app/node_modules
+      - .:/usr/src/app  
 
   web:
     build:
