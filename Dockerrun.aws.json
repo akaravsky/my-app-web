@@ -11,7 +11,7 @@
         {
             "name": "server",
             "image": "askaravskiy/myapp-web-server",
-            "hostname": "api",
+            "hostname": "server",
             "essential": false,
             "memory": 128
         },
