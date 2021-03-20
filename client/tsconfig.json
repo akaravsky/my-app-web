@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "outDir": "ts-build",
-    "baseUrl": "./src", //for non relative paths
+    "baseUrl": "./client/src", //for non relative paths
     "typeRoots": [
       "./node_modules/@types"
     ],

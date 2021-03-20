@@ -1,18 +1,18 @@
 import { useMutation } from '@apollo/react-hooks';
-import { login as loginMutation } from '../mutation';
+import { signup as signupMutation } from '../mutations';
 import currentUserQuery from 'common/queries/currentUser.query';
-import { useRedirectAfterAuth } from 'AuthPage/hooks';
+import { useRedirectAfterAuth } from 'hooks';
 
 export default (
     email: string,
     password: string
-): { login: () => void; error?: string } => {
-    const [login, { error }] = useMutation(loginMutation);
+): { signup: () => void; error?: string } => {
+    const [signup, { error }] = useMutation(signupMutation);
     useRedirectAfterAuth();
     return {
-        login: async (): Promise<void> => {
+        signup: async (): Promise<void> => {
             try {
-                await login({
+                await signup({
                     variables: { email, password },
                     refetchQueries: [{ query: currentUserQuery }]
                 });

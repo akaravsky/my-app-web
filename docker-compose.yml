@@ -11,25 +11,24 @@ services:
       - '3050:80'
     networks:
       - my-app-api_some-net
-  api:
+  server:
     build:
       dockerfile: Dockerfile.dev
-      context: ./server
+      context: ./src/server
     volumes:
-      - /usr/src/app/node_modules
-      - .:/usr/src/app  
-
-  web:
+      - /app/node_modules
+      - .:/app  
+  client:
     build:
       dockerfile: Dockerfile.dev
       context: .
     volumes:
       #don't rewrite node_modules
-      - /usr/src/app/node_modules
+      - /app/node_modules
       #copy all from current folder to app folder
-      - .:/usr/src/app
+      - .:/app
     ports:
-     - "8080:8080"
+     - "3000:3000"
     networks:
       - my-app-api_some-net
 

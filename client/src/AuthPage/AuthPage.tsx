@@ -2,9 +2,9 @@ import { Paper } from '@material-ui/core';
 import React, { ChangeEvent } from 'react';
 
 import useAuthPageStyles from './AuthPage.styles';
-import AuthSwitcher from './AuthSwitcher/AuthSwitcher.component';
+import AuthSwitcher from '../AuthSwitcher/AuthSwitcher.component';
 import GoogleAuth from './GoogleAuth';
-import LoginForm from './LoginForm/LoginForm.component';
+import LoginForm from '../LoginForm/LoginForm.component';
 import SigninForm from './SignupForm/SignupForm.component';
 
 enum AUTH_TYPE {

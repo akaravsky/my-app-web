@@ -52,7 +52,8 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html' //add tags script to html template with src= bundle.js or vendors.js
+            template: 'src/index.html', //add tags script to html template with src= bundle.js or vendors.js
+            favicon: 'src/favicon.gif'
         })
     ],
     optimization: {
