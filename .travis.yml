@@ -19,14 +19,17 @@ after_success:
     - docker push askaravskiy/myapp-web-nginx
     - docker push askaravskiy/myapp-web-server
 
+#deploy:
+#    provider: elasticbeanstalk
+#    region: us-east-2
+#    app: myApp-web
+#    env: Myappweb-env
+#    bucket_name: 'elasticbeanstalk-us-east-2-865284307270'
+#    bucket_path: 'my-app-web'
+#    on:
+#        branch: main
+#    access_key_id: $AWS_ACCESS_KEY
+#    secret_access_key: $AWS_SECRET_KEY
+
 deploy:
-    provider: elasticbeanstalk
-    region: us-east-2
-    app: myApp-web
-    env: Myappweb-env
-    bucket_name: 'elasticbeanstalk-us-east-2-865284307270'
-    bucket_path: 'my-app-web'
-    on:
-        branch: main
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+  provider: heroku
